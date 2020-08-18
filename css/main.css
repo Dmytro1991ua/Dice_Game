@@ -32,7 +32,7 @@ html, body {
 body {
     font-size: 1.6rem;
     box-sizing: border-box;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     background: linear-gradient(rgba(0, 0, 0, 0.61), rgba(0, 0, 0, 0.61)), url(../img/dice-bg.jpg);
     background-size: cover;
     background-position: 19% 35%;
@@ -65,7 +65,7 @@ body {
     align-items: center;
 
     /*background-color: rgb(83, 78, 78); */
-    background-color: rgba(92, 252, 0, .65);
+    background-color: rgba(92, 252, 0, 0.65);
     color: #ffff;
     position: relative;
 }
@@ -124,26 +124,28 @@ body {
     transition: all .4s ease-in-out;
 }
 
-.player-0-panel,
-.player-1-panel {}
+.dice__btn:hover .dice__btn-icon--animated {
+    animation: spin 2s linear infinite;
+}
 
-.player-0-panel {
-    background-color: rgb(23, 235, 118, .65);
+.dice__btn:hover .dice__btn-icon--pulse {
+    animation: pulse 1s linear infinite;
 }
 
 .player-name {
     font-size: 4rem;
-    font-weight: 600;
-    letter-spacing: 1.5rem;
+    font-weight: 100;
+    letter-spacing: 1.2rem;
     text-transform: uppercase;
     margin-bottom: 2rem;
 }
 
 .player-score {
-    font-size: 6rem;
-    font-weight: 500;
+    font-size: 8rem;
+    font-weight: 100;
     letter-spacing: .6rem;
     margin-bottom: 13rem;
+    color: #000000;
 }
 
 .player-current-box {
@@ -165,6 +167,7 @@ body {
 
 .player-current-title {
     font-size: 2rem;
+    font-weight: 100;
     letter-spacing: 2px;
     margin-bottom: 1rem;
     text-transform: uppercase;
@@ -172,6 +175,7 @@ body {
 
 .player-current-score {
     font-size: 5rem;
+    font-weight: 100;
 }
 
 .btn-roll {
@@ -187,4 +191,73 @@ body {
 .btn-new {
     top: 7%;
     left: 42%;
+}
+
+/* classes for JS */
+.active {
+    background-color: rgb(23, 235, 118, 0.65);
+}
+
+.active .player-name {
+    font-weight: 500;
+}
+
+.active .player-score {
+    font-weight: 500;
+}
+
+.active .player-name::after {
+    content: "\2022";
+    font-size: 84px;
+    position: absolute;
+    color: #b31616;
+    top: 8.7%;
+    right: 4%;
+}
+
+.active .player-current-title,
+.active .player-current-score {
+    font-weight: 500;
+}
+
+.winner {
+    background-color: rgba(92, 252, 0, 0.65);
+}
+
+.winner .player-name {
+    font-weight: 500;
+    color: #000000;
+}
+
+.winner .player-score {
+    font-weight: 500;
+}
+
+/* Animations */
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    from {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+
+    to {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
 }
