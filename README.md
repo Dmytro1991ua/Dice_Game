@@ -12,3 +12,5 @@ Dice Game or as it also called a Pig Game is one of the oldest and well-known wo
 5. The first player to reach 100 points on GLOBAL score wins the game.
 
 Stack of technologies which were used to develop a particular project: **HTML/HTML5, CSS3, BEM, JS.**
+
+A link on GitHub pages - https://dmytro1991ua.github.io/Dice_Game/
