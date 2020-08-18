@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
+   <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-icon-60x60.png">
+   <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-icon-72x72.png">
+   <link rel="apple-touch-icon" sizes="76x76" href="img/favicon/apple-icon-76x76.png">
+   <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-icon-114x114.png">
+   <link rel="apple-touch-icon" sizes="120x120" href="img/favicon/apple-icon-120x120.png">
+   <link rel="apple-touch-icon" sizes="144x144" href="img/favicon/apple-icon-144x144.png">
+   <link rel="apple-touch-icon" sizes="152x152" href="img/favicon/apple-icon-152x152.png">
+   <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
+   <link rel="icon" type="image/png" sizes="192x192" href="img/favicon/android-icon-192x192.png">
+   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+   <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96x96.png">
+   <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+   <meta name="msapplication-TileColor" content="#ffffff">
+   <meta name="msapplication-TileImage" content="img/favicon/ms-icon-144x144.png">
+   <meta name="theme-color" content="#ffffff">
+   <title>Dice Game</title>
+   <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+   <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+   <div class="wrapper">
+      <section class="dice">
+         <div class="container">
+            <div class="dice__body">
+               <!--Player 1 panel starts-->
+               <div class="player-0-panel dice__item">
+                  <h2 class="player-name name-0">Player 1</h2>
+                  <p class="player-score score-0">50</p>
+                  <div class="player-current-box">
+                     <h3 class="player-current-title">Current Score</h3>
+                     <p class="player-current-score score-0">10</p>
+                  </div>
+               </div>
+               <!--Player 1 panel ends-->
+               <!--Player 2 panel starts-->
+               <div class="player-1-panel dice__item">
+                  <div class="player-1-panel">
+                     <h2 class="player-name name-1">Player 2</h2>
+                     <p class="player-score score-1">75</p>
+                     <div class="player-current-box">
+                        <h3 class="player-current-title">Current Score</h3>
+                        <p class="player-current-score score-1">20</p>
+                     </div>
+                  </div>
+               </div>
+               <!--Player 2 panel ends-->
+               <!--Butons roll, hold new game-->
+               <button class="btn-roll dice__btn"><i class="ion-ios-loop dice__btn-icon"></i>Roll Dice</button>
+               <button class="btn-hold dice__btn"><i class="ion-ios-download-outline dice__btn-icon"></i>Hold Scores</button>
+               <button class="btn-new dice__btn"><i class="ion-ios-plus-outline dice__btn-icon"></i>New Game</button>
+               <!--Dice image-->
+               <img src="img/dice-5.png" alt="Dice" class="dice-img">
+            </div>
+         </div>
+      </section>
+   </div>
+
+   <script src="js/main.js"></script>
+</body>
+
+</html>

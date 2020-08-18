@@ -1,0 +1,190 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-size: 1.6rem;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.61), rgba(0, 0, 0, 0.61)), url(../img/dice-bg.jpg);
+    background-size: cover;
+    background-position: 19% 35%;
+    background-repeat: no-repeat;
+}
+
+.wrapper {
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    max-width: 114rem;
+    margin: 0 auto;
+    padding: 0 1.6rem;
+}
+
+/* Player panel styles*/
+.dice {
+    width: 100%;
+}
+
+.dice__body {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+
+    /*background-color: rgb(83, 78, 78); */
+    background-color: rgba(92, 252, 0, .65);
+    color: #ffff;
+    position: relative;
+}
+
+.dice__item {
+    flex: 0 1 50%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: stretch;
+    text-align: center;
+    padding: 8rem 8rem 10rem 8rem;
+}
+
+.dice-img {
+    position: absolute;
+    top: 31%;
+    left: 45.5%;
+    max-width: 100%;
+    height: auto;
+    max-height: 10rem;
+    display: block;
+}
+
+.dice__btn {
+    position: absolute;
+    border: none;
+    background-color: rgb(252, 252, 145);
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding: 1rem 3rem;
+    border-radius: 1rem;
+    transition: all .4s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dice__btn:hover {
+    font-weight: 600;
+    cursor: pointer;
+    background-color: rgb(236, 236, 14);
+}
+
+.dice__btn:hover .dice__btn-icon {
+    margin-right: 2rem;
+}
+
+.dice__btn-icon {
+    color: rgb(228, 28, 28);
+    display: inline-block;
+    margin-right: 1.5rem;
+    font-size: 3.2rem;
+    line-height: 1;
+    transition: all .4s ease-in-out;
+}
+
+.player-0-panel,
+.player-1-panel {}
+
+.player-0-panel {
+    background-color: rgb(23, 235, 118, .65);
+}
+
+.player-name {
+    font-size: 4rem;
+    font-weight: 600;
+    letter-spacing: 1.5rem;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+.player-score {
+    font-size: 6rem;
+    font-weight: 500;
+    letter-spacing: .6rem;
+    margin-bottom: 13rem;
+}
+
+.player-current-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(13, 157, 240);
+    padding: 2rem;
+    border-radius: 1.4rem;
+    transition: all 0.4s ease-in-out;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.player-current-box:hover {
+    cursor: pointer;
+    background-color: rgb(35, 35, 173);
+}
+
+.player-current-title {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.player-current-score {
+    font-size: 5rem;
+}
+
+.btn-roll {
+    top: 61%;
+    left: 42%;
+}
+
+.btn-hold {
+    top: 73%;
+    left: 41%;
+}
+
+.btn-new {
+    top: 7%;
+    left: 42%;
+}
