@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
    const btnHold = document.querySelector(".btn-hold");
    const btnNewGame = document.querySelector(".btn-new");
 
-   let scores, roundScore, activePlayer, gamePlaying;
+   let scores, roundScore, activePlayer, gamePlaying, previousDiceRoll;
 
    initial();
 
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gamePlaying = true;
 
       //hide dice
-      document.querySelector(".dice-img").style.display = "none";
+      hideDice();
 
       //reset player's global score
       document.querySelector(".score-0").textContent = "0";
@@ -39,6 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector(".player-0-panel").classList.remove("winner");
       document.querySelector(".player-1-panel").classList.remove("winner");
 
+      //clear input field from any value
+      document.querySelector(".dice__winning-score-input").value = "";
+
       //add active class to a first player (always active at the beginning of the game)
       document.querySelector(".player-0-panel").classList.add("active");
    }
@@ -47,6 +50,9 @@ document.addEventListener("DOMContentLoaded", () => {
    function nextPlayer() {
       //change an active player
       activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+
+      //reset round score
+      roundScore = 0;
 
       //reset a round score of a certain player
       document.querySelector(".current-score-0").textContent = "0";
@@ -57,21 +63,34 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector(".player-1-panel").classList.toggle("active");
 
       //hide dice
-      document.querySelector(".dice-img").style.display = "none";
+      hideDice()
+   }
+
+   function hideDice() {
+      const dices = document.querySelectorAll(".dice-img");
+      dices.forEach(dice => {
+         dice.style.display = "none";
+      })
+
    }
 
    btnRoll.addEventListener("click", () => {
       if (gamePlaying) {
-         //create random number to display on dice
-         let dice = Math.floor(Math.random() * 6) + 1;
+         //create random number to display on  2 dices
+         let dice1 = Math.floor(Math.random() * 6) + 1;
+         let dice2 = Math.floor(Math.random() * 6) + 1;
 
          //display a random number on the screen
-         let diceImgDisplayed = document.querySelector(".dice-img");
-         diceImgDisplayed.style.display = "block";
-         diceImgDisplayed.src = "img/dice-" + dice + ".png"; //change a src of img and display it with random number 
-
-         if (dice !== 1) { // if dice not a 1 then add  round scores
-            roundScore += dice;
+         let diceImgDisplayed = document.querySelectorAll(".dice-img");
+         diceImgDisplayed.forEach(img => {
+            img.style.display = "block";
+         })
+         document.querySelector(".dice-img--1").src = "img/dice-" + dice1 + ".png";
+         document.querySelector(".dice-img--2").src = "img/dice-" + dice2 + ".png";
+         
+         
+         if (dice1 !== 1 && dice2 !== 1) { // if dice not a 1 then add  round scores
+            roundScore += dice1 + dice2;
             document.querySelector(".current-score-" + activePlayer).textContent = roundScore;
          } else { // else next player turn
             nextPlayer()
@@ -82,18 +101,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
    btnHold.addEventListener("click", () => {
       if (gamePlaying) {
+
+         //get value of input field
+         const InputWinningScore = document.querySelector(".dice__winning-score-input").value;
+         let winningScore;
+
          //add round score to a global score
          scores[activePlayer] += roundScore;
 
          //update global scores in a global interface
          document.querySelector(".score-" + activePlayer).textContent = scores[activePlayer];
 
+         //check if there is a value in input field
+         if (InputWinningScore) {
+            winningScore = InputWinningScore;
+         } else {
+            winningScore = 100;
+         }
+
          //check if player won a game
-         if (scores[activePlayer] >= 20) {
+         if (scores[activePlayer] >= winningScore) {
             //change a player name to a Winner!
-            document.querySelector(".name-" + activePlayer).textContent = "~Winner!~";
+            document.querySelector(".name-" + activePlayer).textContent = "~ Winner! ~";
             //hide dice
-            document.querySelector(".dice-img").style.display = "none";
+            hideDice()
 
             //adding winning class to a winner and remove active
             document.querySelector(".player-" + activePlayer + "-panel").classList.remove("active");
@@ -104,6 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             //stop the game
             gamePlaying = false;
+
          } else {
             nextPlayer();
          }

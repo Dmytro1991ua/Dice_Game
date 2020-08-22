@@ -80,12 +80,19 @@ body {
 
 .dice-img {
     position: absolute;
-    top: 31%;
     left: 45.5%;
     max-width: 100%;
     height: auto;
     max-height: 10rem;
     display: block;
+}
+
+.dice-img--1 {
+    top: 25%;
+}
+
+.dice-img--2 {
+    top: 42%;
 }
 
 .dice__btn {
@@ -122,12 +129,40 @@ body {
     transition: all .4s ease-in-out;
 }
 
+.dice__btn:focus {
+    outline: none;
+}
+
 .dice__btn:hover .dice__btn-icon--animated {
     animation: spin 2s linear infinite;
 }
 
 .dice__btn:hover .dice__btn-icon--pulse {
     animation: pulse 1s linear infinite;
+}
+
+.dice__winning-score-input {
+    position: absolute;
+    bottom: 5%;
+    left: 40.3%;
+    width: 22rem;
+    max-width: 100%;
+    height: 5rem;
+    font-size: 1.6rem;
+    font-family: inherit;
+    text-transform: uppercase;
+    text-align: center;
+    border: 2px solid rgb(236, 236, 14);
+    background-color: rgb(255, 255, 9);
+    border-radius: 1rem;
+}
+
+.dice__winning-score-input::placeholder {
+    color: rgb(119, 115, 115);
+}
+
+.dice__winning-score-input:focus {
+    outline: none;
 }
 
 .player-name {
