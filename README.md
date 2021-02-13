@@ -2,6 +2,9 @@ Hey Everyone. Welcome to my journey as a Front-End Developer where I am striving
 
 # Dice Game 
 
+![screenshot-dmytro1991ua-github-io-Dice_Game-1613231600399](https://user-images.githubusercontent.com/61331410/107854437-71ad6880-6e24-11eb-9e27-872e58c35364.png)
+
+
 Dice Game or as it also called a Pig Game is one of the oldest and well-known worldwide. Here, in this project, I have implemented some basic functionality so now everyone could start playing and enjoy the game. The inspiration and knowledge for this project comes from Jonas Schmedtmann's complete JavaScript course
 
 ### Some basic rules for this game:
